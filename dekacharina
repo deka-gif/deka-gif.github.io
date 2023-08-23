@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerita Deka & Charina</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-size: cover;
+    background-position: center;
+  }
+  .slide.active {
+    display: block;
+  }
+  .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.185);
+    border-radius: 10px;
+    text-align: center;
+  }
+  h1 {
+    color: #000000;
+  }
+  p {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+  }
+  .controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="slide" style="background-image: url('https://i.postimg.cc/Prrjk3Sj/IMG-20220818-230506-883-1.webp');">
+    <div class="slide-content">
+
+      <h1>Dekaprio and Charina, and this is our story...</h1>
+      <button onclick="nextSlide()">deka</button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image: url('https://i.postimg.cc/NjL5khPJ/IMG-20221108-183406-340.jpgostimg.cc/C5rBD1j5/IMG-20230427-WA0009.jpg');">
+    <div class="slide-content">
+      <h1>Tanggal Jadian: 01-05-22</h1>
+      <p>Saat itu, kisah cinta kami dimulai.</p>
+      <button onclick="nextSlide()">charina</button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image: url('https://i.postimg.cc/GhccBXKM/IMG-20230415-232618-652.jpg');">
+    <div class="slide-content">
+      <h1>Cerita SMA Kami</h1>
+      <p>masa sma paling seru. kami bisa berjumpa tiap hari ,jajan sama ,pulang sama,dan canda tawa,dan paling menyenangkan guru-guru menilai kami pacaran dewasa.</p>
+      <button onclick="nextSlide()">deka</button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image: url('https://i.postimg.cc/bNH9gwQy/IMG-20230416-111913-802.jpg');">
+    <div class="slide-content">
+      <h1>Kuliah di Tanah Jawa</h1>
+      <p>sekarang saatnya kami fokus dengan study untuk masa depan yang baik. walaupun rasanya sakit untuk berpisah tapi lebih sakit jika kita gagal dalam dunia pendidikan :)... kami tetap berjuang bersama.</p>
+      <p>Deka anak bisnis, Charina anak teknik nanti lulus banyak duit.</p>
+      <button onclick="nextSlide()">charina</button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image: url('https://i.postimg.cc/QM931PR3/IMG-20230222-133116-298.jpg');">
+    <div class="slide-content">
+      <h1>Semasa LDR</h1>
+      <p>Kami membuat komitmen bersama, dan saling percaya , saling mengingat .</p>
+      <p>Kami menyerahkan segalanya ke tangan Tuhan.</p>
+      <button onclick="nextSlide()">deka</button>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image: url('https://i.postimg.cc/4yBJX54D/IMG-20220906-WA0022.jpg');">
+    <div class="slide-content">
+      <h1>berjarak karena kuliah bertemu sudah sarjana chuaakk ᵔᴥᵔ </h1>
+      <p>Cerita cinta kami adalah tentang perjuangan dan impian.</p>
+    </div>
+  </div>
+
+  <audio id="audio" controls>
+    <source controls autoplay src="y2mate.com - Melody of Memories.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="controls">
+    <button onclick="prevSlide()">◀</button>
+    <button onclick="nextSlide()">▶</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const audio = document.getElementById('audio');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, idx) => {
+        if (idx === index) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+      audio.play();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+      audio.play();
+    }
+
+    // Initial slide
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
